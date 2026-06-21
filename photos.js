@@ -25,7 +25,7 @@
    ========================================================================= */
 
 const PHOTOS = [
-  { src: "images/placeholder-1.svg", loc: "Brooklyn",  date: "2026", alt: "Replace me with a real photograph." },
+  { src: "images/P1020965.JPG", loc: "Brooklyn",  date: "2026", alt: "Replace me with a real photograph." },
   { src: "images/placeholder-2.svg", loc: "Tokyo",     date: "2025", alt: "Replace me with a real photograph." },
   { src: "images/placeholder-3.svg", loc: "Singapore", date: "2024", alt: "Replace me with a real photograph." },
   { src: "images/placeholder-4.svg", loc: "London",    date: "2024", alt: "Replace me with a real photograph." },
