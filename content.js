@@ -34,10 +34,10 @@ const PROFILE = {
     {
       label: "lived",
       rows: [
-        { yr: "2010-2014",  tx: "London, United Kingdom" },
+        { yr: "2010 — 2014",  tx: "London, United Kingdom" },
         { yr: "2014 — 2020", tx: "Tokyo, Japan" },
         { yr: "2020 — 2022", tx: "Singapore" },
-        { yr: "2022-Present",        tx: "New York City, USA" },
+        { yr: "2022 — Present",        tx: "New York City, USA" },
       ]
     },
 
