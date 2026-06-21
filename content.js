@@ -47,7 +47,7 @@ const PROFILE = {
          { yr: "2026 (Jan–May)", tx: "Social Media Intern — The Metropolitan Museum of Art" },
          { yr: "2025 — present", tx: "Intern — Nepenthes New York" },
          { yr: "2024 — 2025", tx: "Assistant Karate Instructor — Japanese American Budokan" },
-         { yr: "Summer of 2024 / 2025 ", tx: "Camp Volunteer — NYS Dept. of Environmental Conservation" },
+         { yr: "Summer of 2024/2025 ", tx: "Camp Volunteer — NYS Dept. of Environmental Conservation" },
       ]
     },
 
