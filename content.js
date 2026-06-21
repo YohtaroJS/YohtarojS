@@ -55,8 +55,8 @@ const PROFILE = {
       label: "school",
       rows: [
         { yr: "2022 — now",  tx: "BASIS Independent Brooklyn" },
-        { yr: "2020 — 2022", tx: "Nexus International School, Singapore" },
-        { yr: "2014 — 2020", tx: "Nishimachi International School, Tokyo" },
+        { yr: "2020 — 2022", tx: "Nexus International School Singapore" },
+        { yr: "2015 — 2020", tx: "Nishimachi International School" },
       ]
     },
 
