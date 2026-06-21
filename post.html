@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Writing — Yohtaro Shimozawa</title>
+<meta name="description" content="An essay by Yohtaro Shimozawa.">
+<meta property="og:type" content="article">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<link rel="preload" href="fonts/DepartureMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+
+  <header class="head">
+    <a class="mark" href="index.html">yohtarojs.com</a>
+    <nav>
+      <a href="blog.html">writing</a>
+      <a href="photography.html">photography</a>
+    </nav>
+  </header>
+
+  <!-- the article is built from posts.js using ?p=<slug> -->
+  <main><article class="col" id="post"></article></main>
+
+  <footer class="foot">
+    <div class="links">
+      <a href="index.html">home</a>
+      <a href="blog.html">all writing</a>
+      <a href="mailto:yohtaroshimozawa@gmail.com">email</a>
+    </div>
+    <span class="copy">© <span data-year>2026</span> Yohtaro Shimozawa</span>
+  </footer>
+
+</div>
+
+<script src="posts.js"></script>
+<script>renderPost(document.getElementById("post"));</script>
+<script src="site.js"></script>
+</body>
+</html>

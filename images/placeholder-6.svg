@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="650" viewBox="0 0 800 650" role="img" aria-label="Placeholder photograph">
+  <rect width="800" height="650" fill="#dccfbd"/>
+  <rect x="24" y="24" width="752" height="602" fill="none" stroke="#bbaa8d" stroke-width="2"/>
+  <g fill="#93836b" font-family="'Space Mono', monospace" text-anchor="middle">
+    <text x="400" y="320" font-size="34" letter-spacing="2">your photo here</text>
+    <text x="400" y="370" font-size="20" fill="#a8977c">replace in images/ + photos.js</text>
+  </g>
+</svg>

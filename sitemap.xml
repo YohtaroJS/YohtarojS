@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- When you add a post, add its URL here too:
+     <url><loc>https://yohtarojs.com/post.html?p=your-slug</loc></url> -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://yohtarojs.com/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://yohtarojs.com/blog.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yohtarojs.com/photography.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yohtarojs.com/post.html?p=the-city-on-my-shoulders</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yohtarojs.com/post.html?p=why-i-built-this-the-boring-way</loc>
+    <priority>0.6</priority>
+  </url>
+</urlset>

@@ -1,0 +1,218 @@
+/* =========================================================================
+   yohtarojs.com — styles
+   Cream paper, Departure Mono, a little CRT.
+   To recolour the whole site, change the few values under ":root" below.
+   ========================================================================= */
+
+/* ---- the font (self-hosted, lives in /fonts) ---------------------------- */
+@font-face{
+  font-family:"Departure Mono";
+  src:url("fonts/DepartureMono-Regular.woff2") format("woff2"),
+      url("fonts/DepartureMono-Regular.woff")  format("woff");
+  font-weight:normal; font-style:normal; font-display:swap;
+}
+
+:root{
+  /* colour ------------------------------------------------------------ */
+  --bg:     #f0e6cd;   /* cream paper                         */
+  --panel:  #ece0c1;   /* slightly deeper cream               */
+  --ink:    #2a2318;   /* warm near-black (main text)         */
+  --muted:  #6b5d44;   /* secondary text                      */
+  --faint:  #9a8a68;   /* captions, small labels              */
+  --line:   rgba(42,35,24,.22);   /* hairlines / rules        */
+  --accent: #c23a20;   /* retro vermilion (links, marks)      */
+
+  /* type -------------------------------------------------------------- */
+  --mono: "Departure Mono", ui-monospace, "Courier New", monospace;
+
+  /* size -------------------------------------------------------------- */
+  --measure: 42rem;    /* reading width        */
+  --page:    58rem;    /* page column width    */
+  --pad:     clamp(1.25rem, 5vw, 2.75rem);
+}
+
+/* ---- base --------------------------------------------------------------- */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; }
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--mono);
+  font-weight:normal;
+  font-size:clamp(.92rem,.7rem + .7vw,1.02rem);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* CRT: faint scanlines + paper grain — static, cheap */
+body::before{
+  content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(42,35,24,.05) 0 1px, transparent 1px 3px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+}
+
+/* a thin screen frame around the whole page */
+body::after{
+  content:""; position:fixed; inset:13px; z-index:60; pointer-events:none;
+  border:1px solid rgba(42,35,24,.35);
+}
+@media (max-width:600px){ body::after{ inset:7px; } }
+
+img{ max-width:100%; height:auto; display:block; }
+a{ color:var(--accent); text-decoration:none; }
+a:hover{ text-decoration:underline; text-underline-offset:3px; }
+strong,b{ font-weight:normal; color:var(--accent); }   /* pixel font has one weight */
+
+/* ---- opening animation: a quick CRT power-on ---------------------------- */
+@keyframes boot{
+  0%   { opacity:0; transform:translateY(7px) scaleY(.985); filter:brightness(1.8); }
+  9%   { opacity:1; }
+  13%  { filter:brightness(.55); }
+  18%  { filter:brightness(1.5); }
+  26%  { filter:brightness(.9); }
+  100% { opacity:1; transform:none; filter:none; }
+}
+.page{ animation:boot .85s ease-out both; }
+@media (prefers-reduced-motion:reduce){ .page{ animation:none; } }
+
+/* blinking terminal caret */
+.caret{
+  display:inline-block; width:.62em; height:1em; vertical-align:-.12em;
+  background:var(--accent); margin-left:.25em;
+  animation:blink 1.1s steps(1) infinite;
+}
+@keyframes blink{ 50%{ opacity:0; } }
+@media (prefers-reduced-motion:reduce){ .caret{ animation:none; } }
+
+/* ---- shared column ------------------------------------------------------ */
+.page{ max-width:var(--page); margin-inline:auto; padding-inline:var(--pad); }
+.col{  max-width:var(--measure); }
+
+/* ---- letterhead (top bar) ---------------------------------------------- */
+.head{
+  display:flex; align-items:baseline; gap:1rem;
+  padding:1.5rem 0 1.1rem;
+  border-bottom:1px solid var(--line);
+}
+.head .mark{ font-size:.82rem; color:var(--ink); }
+.head .mark:hover{ color:var(--accent); text-decoration:none; }
+.head nav{ margin-left:auto; display:flex; gap:1.3rem; }
+.head nav a{ font-size:.82rem; color:var(--muted); }
+.head nav a:hover,.head nav a[aria-current="page"]{ color:var(--ink); text-decoration:none; }
+.head nav a[aria-current="page"]{ text-decoration:underline; text-underline-offset:4px; text-decoration-color:var(--accent); }
+
+/* ---- masthead (the name + optional ASCII portrait) --------------------- */
+.masthead{ padding:clamp(2.2rem,6vw,4rem) 0 1.4rem; }
+.masthead.has-ascii{
+  display:grid; grid-template-columns:1fr auto;
+  gap:clamp(1.2rem,4vw,3rem); align-items:start;
+}
+.masthead h1{
+  margin:0; font-weight:normal;
+  letter-spacing:-.01em; line-height:1.04;
+  font-size:clamp(2.1rem,7vw,4.2rem);
+  text-shadow:0 0 7px rgba(194,58,32,.18);   /* faint phosphor glow */
+}
+.masthead .kanji{ font-size:.95rem; color:var(--muted); margin-top:.9rem; letter-spacing:.05em; }
+.masthead .intro{
+  font-size:clamp(1rem,.9rem + .5vw,1.2rem); line-height:1.6;
+  max-width:32rem; margin:1.5rem 0 0; color:var(--ink);
+}
+.masthead .place{ font-size:.82rem; color:var(--muted); margin-top:1.1rem; }
+.masthead.rule{ border-bottom:3px double var(--ink); }
+
+/* the ASCII portrait */
+.ascii{
+  margin:0; white-space:pre; line-height:1;
+  font-family:var(--mono);
+  font-size:clamp(.42rem,1.1vw,.62rem);
+  color:var(--ink); overflow-x:auto;
+  align-self:center;
+}
+@media (max-width:680px){
+  .masthead.has-ascii{ grid-template-columns:1fr; }
+  .ascii{ order:-1; margin-bottom:1rem; font-size:.6rem; }
+}
+
+/* ---- a labelled, ruled list (lived / work / school) -------------------- */
+.block{ padding:clamp(1.8rem,5vw,2.8rem) 0; border-bottom:1px solid var(--line); }
+.block > .label{ font-size:.78rem; letter-spacing:.04em; color:var(--faint); margin:0 0 1.1rem; text-transform:uppercase; }
+.rows{ list-style:none; margin:0; padding:0; }
+.rows li{ display:grid; grid-template-columns:9.5rem 1fr; gap:.2rem 1.5rem; padding:.6rem 0; }
+.rows .yr{ font-size:.82rem; color:var(--muted); padding-top:.25rem; }
+.rows .tx{ font-size:1.05rem; line-height:1.4; }
+@media (max-width:540px){
+  .rows li{ grid-template-columns:1fr; gap:.1rem; padding:.7rem 0; }
+  .rows .yr{ padding-top:0; }
+}
+
+/* ---- colophon (footer) -------------------------------------------------- */
+.foot{ display:flex; flex-wrap:wrap; gap:.8rem 1.6rem; align-items:baseline; padding:1.6rem 0 2.4rem; }
+.foot a, .foot span{ font-size:.8rem; color:var(--muted); }
+.foot a:hover{ color:var(--ink); text-decoration:none; }
+.foot .copy{ margin-left:auto; color:var(--faint); }
+
+/* ---- page intro (blog / photography headers) --------------------------- */
+.intro-block{ padding:clamp(2rem,6vw,3.4rem) 0 1.6rem; }
+.intro-block .label{ font-size:.78rem; letter-spacing:.05em; color:var(--faint); margin:0 0 .8rem; text-transform:uppercase; }
+.intro-block h1{
+  margin:0; font-weight:normal; letter-spacing:-.01em;
+  font-size:clamp(1.9rem,6vw,3.2rem); line-height:1.05;
+  text-shadow:0 0 7px rgba(194,58,32,.18);
+}
+.intro-block p{ font-size:.86rem; color:var(--muted); margin:1rem 0 0; }
+
+/* ---- writing index ------------------------------------------------------ */
+.postlist{ list-style:none; margin:0; padding:0; }
+.postlist li{ border-top:1px solid var(--line); }
+.postlist a{ display:grid; grid-template-columns:8rem 1fr; gap:.3rem 1.5rem; padding:1.5rem 0; color:var(--ink); }
+.postlist a:hover{ text-decoration:none; }
+.postlist a:hover h2{ color:var(--accent); }
+.postlist .date{ font-size:.8rem; color:var(--muted); padding-top:.3rem; }
+.postlist h2{ font-weight:normal; font-size:1.4rem; line-height:1.2; margin:0 0 .3rem; transition:color .15s; }
+.postlist .excerpt{ font-size:.84rem; color:var(--muted); margin:0; }
+@media (max-width:540px){
+  .postlist a{ grid-template-columns:1fr; gap:.15rem; }
+  .postlist .date{ padding-top:0; }
+}
+
+/* ---- single post -------------------------------------------------------- */
+.article-head{ padding:clamp(1rem,4vw,2rem) 0 1.5rem; }
+.article-head .date{ font-size:.8rem; color:var(--muted); }
+.article-head h1{
+  font-weight:normal; font-size:clamp(1.8rem,4vw + 1rem,3rem); line-height:1.08;
+  letter-spacing:-.01em; margin:.5rem 0 0; text-shadow:0 0 7px rgba(194,58,32,.18);
+}
+.prose{ font-size:1.02rem; line-height:1.75; }
+.prose > *:first-child{ margin-top:0; }
+.prose p{ margin:0 0 1.3rem; }
+.prose h2{ font-weight:normal; font-size:1.3rem; letter-spacing:-.01em; margin:2.4rem 0 .8rem; }
+.prose h3{ font-weight:normal; font-size:1.12rem; margin:2rem 0 .6rem; color:var(--muted); }
+.prose a{ text-decoration:underline; text-underline-offset:3px; }
+.prose blockquote{ margin:1.6rem 0; padding:.2rem 0 .2rem 1.4rem; border-left:3px solid var(--accent); color:var(--muted); font-style:italic; }
+.prose ul,.prose ol{ margin:0 0 1.3rem; padding-left:1.4rem; }
+.prose li{ margin:.4rem 0; }
+.prose img{ margin:1.8rem 0; border:1px solid var(--line); }
+.prose hr{ border:none; border-top:3px double var(--ink); margin:2.6rem 0; }
+.prose code{ font-size:.92em; background:var(--panel); padding:.08em .35em; }
+.prose figure{ margin:1.8rem 0; }
+.prose figcaption{ font-size:.76rem; color:var(--faint); text-align:center; margin-top:.5rem; }
+
+/* ---- back link ---------------------------------------------------------- */
+.back{ font-size:.8rem; color:var(--muted); display:inline-block; margin-top:1.5rem; }
+.back:hover{ color:var(--ink); text-decoration:none; }
+
+/* ---- photography gallery ------------------------------------------------ */
+.gallery{ columns:3 16rem; column-gap:1rem; padding-top:.5rem; }
+.gallery figure{ margin:0 0 1rem; break-inside:avoid; border:1px solid var(--line); background:var(--panel); }
+.gallery img{ width:100%; display:block; }
+.gallery figcaption{ font-size:.74rem; color:var(--muted); padding:.55rem .7rem .7rem; display:flex; justify-content:space-between; gap:.5rem; }
+.gallery figcaption .loc{ color:var(--ink); }
+.empty{ font-size:.85rem; color:var(--faint); padding:2rem 0; }
+
+/* ---- reduced motion ----------------------------------------------------- */
+@media (prefers-reduced-motion:reduce){
+  *{ transition:none !important; }
+}
