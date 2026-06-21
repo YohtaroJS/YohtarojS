@@ -23,37 +23,19 @@
 
 const POSTS = [
 
-  {
-    title: "The City On My Shoulders",
-    date:  "2026-04-15",
-    body: `
-I have lived in four cities and I am not really *from* any of them.
+     {
+         title: "My new post",
+         date:  "2026-06-21",          // year-month-day
+         body: `
 
-People ask where I'm from and I watch the question get heavier every year.
-London is on my passport. Tokyo is in my mouth. Singapore was two years of
-heat and homework. New York is where I am now.
+   Write here. Leave a blank line between paragraphs.
 
-> Home stopped being a place and became a kind of weather I carry around.
+   You can use:  ## a heading   **bold**   *italic*   [a link](https://...)
+                 > a quote      - a bullet point
 
-This is the start of the essay that grew into the one that won a Gold Key.
-More soon.
-    `
-  },
+         `
+       },
 
-  {
-    title: "Why I built this the boring way",
-    date:  "2026-03-02",
-    body: `
-This site is hand-written. No framework, no build step, nothing that needs
-reinstalling in two years to keep working.
-
-I wanted something I could own completely and keep forever. So this is the
-boring, durable version: a page that says who I am, and two doors — one to
-**writing**, one to **photography**. That's the whole site.
-    `
-  }
-
-];
 
 /* ===========================================================================
    Machinery below. You don't need to touch any of this to write posts.
