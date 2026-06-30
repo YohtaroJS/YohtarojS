@@ -34,20 +34,20 @@ const PROFILE = {
     {
       label: "lived",
       rows: [
-        { yr: "2022 — now",  tx: "Brooklyn, New York" },
-        { yr: "2020 — 2022", tx: "Singapore" },
+        { yr: "2010 — 2014",  tx: "London, United Kingdom" },
         { yr: "2014 — 2020", tx: "Tokyo, Japan" },
-        { yr: "born",        tx: "London, United Kingdom" },
+        { yr: "2020 — 2022", tx: "Singapore" },
+        { yr: "2022 — Present",        tx: "New York City, USA" },
       ]
     },
 
     {
       label: "work",
       rows: [
-        { yr: "2025 — now",   tx: "Intern — Nepenthes New York" },
-        { yr: "Jan–May 2026", tx: "Social Media Intern — The Metropolitan Museum of Art, @MetTeens" },
-        { yr: "2024 — now",   tx: "Assistant Karate Instructor — Japanese American Budokan" },
-        { yr: "summers",      tx: "Camp Volunteer — NYS Dept. of Environmental Conservation" },
+         { yr: "2026 (Jan–May)", tx: "Social Media Intern — The Metropolitan Museum of Art" },
+         { yr: "2025 — present", tx: "Intern — Nepenthes New York" },
+         { yr: "2024 — 2025", tx: "Assistant Karate Instructor — Japanese American Budokan" },
+         { yr: "Summer of 2024/2025 ", tx: "Camp Volunteer — NYS Dept. of Environmental Conservation" },
       ]
     },
 
@@ -55,8 +55,8 @@ const PROFILE = {
       label: "school",
       rows: [
         { yr: "2022 — now",  tx: "BASIS Independent Brooklyn" },
-        { yr: "2020 — 2022", tx: "Nexus International School, Singapore" },
-        { yr: "2014 — 2020", tx: "Nishimachi International School, Tokyo" },
+        { yr: "2020 — 2022", tx: "Nexus International School Singapore" },
+        { yr: "2015 — 2020", tx: "Nishimachi International School" },
       ]
     },
 
