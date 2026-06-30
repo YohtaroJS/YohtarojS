@@ -1,51 +1,49 @@
-/* =========================================================================
+/* ===========================================================================
 
    YOUR PHOTOS. Two steps to add one:
 
      1. Put the photo file in the  images/  folder.
      2. Add one line to the list below (newest at the top):
 
-        { src: "images/my-photo.jpg", loc: "Brooklyn", date: "2026" },
+        { src: "images/my-photo.jpg", caption: "What it is", date: "2026" },
 
-   That's it. Only change the words inside the "quotes".
+   - src     : the photo's file name inside images/
+   - caption : the words shown UNDER the photo (write whatever you like) — optional
+   - date    : shown under the photo on the right — optional
 
-   - src  : the photo's file name inside images/
-   - loc  : short place label (bottom-left of the caption) — optional
-   - date : year or month/year (bottom-right) — optional
+   Only change the words inside the "quotes". Keep the commas and brackets.
 
-   HOSTING ELSEWHERE? You don't have to keep photos in this folder. If you
-   host them somewhere (Cloudinary, your Flickr, anywhere), just paste the
-   full link as the src instead:
-        { src: "https://.../my-photo.jpg", loc: "Tokyo", date: "2025" },
+   Photos are shown at full quality, and clicking one opens the original file.
+   For best results keep your originals; they'll look sharp on any screen.
 
-   TIP for quality: export the long edge around 2000–2400px. That looks sharp
-   on screens without being a giant file.
+   HOSTING ELSEWHERE? You can paste a full link as the src instead:
+        { src: "https://.../my-photo.jpg", caption: "Tokyo", date: "2025" },
 
-   Replace the placeholder lines below with your real photos.
-   ========================================================================= */
+   =========================================================================== */
 
 const PHOTOS = [
-  { src: "images/P1020965.JPG", loc: "Brooklyn",  date: "2026", },
-  { src: "images/placeholder-2.svg", loc: "Tokyo",     date: "2025", alt: "Replace me with a real photograph." },
-  { src: "images/placeholder-3.svg", loc: "Singapore", date: "2024", alt: "Replace me with a real photograph." },
-  { src: "images/placeholder-4.svg", loc: "London",    date: "2024", alt: "Replace me with a real photograph." },
-  { src: "images/placeholder-5.svg", loc: "Brooklyn",  date: "2026", alt: "Replace me with a real photograph." },
-  { src: "images/placeholder-6.svg", loc: "Tokyo",     date: "2025", alt: "Replace me with a real photograph." }
+
+  { src: "images/P1020965.JPG", caption: "Brooklyn", date: "2026" },
+
 ];
 
 /* ---- render (used by photography.html) ---------------------------------- */
 function renderGallery(el) {
   if (!el) return;
+  function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
   if (!PHOTOS.length) {
-    el.innerHTML = `<p class="empty">No photographs up yet — check back soon.</p>`;
+    el.innerHTML = '<p class="empty">No photographs up yet — check back soon.</p>';
     return;
   }
-  el.innerHTML = PHOTOS.map((p) => `
-    <figure>
-      <img src="${p.src}" alt="${p.alt || ""}" loading="lazy">
-      <figcaption>
-        <span class="loc">${p.loc || ""}</span>
-        <span>${p.date || ""}</span>
-      </figcaption>
-    </figure>`).join("");
+  el.innerHTML = PHOTOS.map(function (p) {
+    var cap = esc(p.caption), date = esc(p.date);
+    return '<figure>' +
+        '<a class="shot" href="' + esc(p.src) + '" target="_blank" rel="noopener">' +
+          '<img src="' + esc(p.src) + '" alt="' + cap + '" loading="lazy" decoding="async">' +
+        '</a>' +
+        ((cap || date)
+          ? '<figcaption><span class="cap">' + cap + '</span><span class="date">' + date + '</span></figcaption>'
+          : '') +
+      '</figure>';
+  }).join("");
 }
