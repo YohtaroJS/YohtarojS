@@ -36,7 +36,7 @@ const POSTS = [
     date:    "2026-02-05",
     link:    "https://thegrizzlynews.org/2699/showcase/the-everlasting-shadow-of-hiroshima-2/",
     source:  "The Grizzly",
-    excerpt: "Visiting Hiroshima with my grandfather, and what stayed with me. (Scholastic Gold Key, 2026.)"
+  
   },
 
   {
@@ -44,7 +44,7 @@ const POSTS = [
     date:    "2025-11-21",
     link:    "https://thegrizzlynews.org/2648/showcase/ven-space/",
     source:  "The Grizzly",
-    excerpt: "A high-end fashion space tucked into Carroll Gardens, Brooklyn."
+  
   },
 
   {
@@ -52,7 +52,7 @@ const POSTS = [
     date:    "2025-10-10",
     link:    "https://thegrizzlynews.org/2599/literature-and-arts/bedtime-stories/",
     source:  "The Grizzly",
-    excerpt: "On Stefano Gallici’s Spring 2026 collection for Ann Demeulemeester."
+ 
   }
 
 ];
