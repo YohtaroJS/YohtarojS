@@ -1,72 +1,72 @@
 /* ===========================================================================
 
-   YOUR WRITING BLOG. To post, copy the block below, paste it at the TOP of
-   the list, and change the three things: title, date, and your writing.
+   YOUR WRITING. Two kinds of entries — use whichever you want:
 
-       {
-         title: "My new post",
-         date:  "2026-06-21",          // year-month-day
-         body: `
+   (A) LINK to something you published somewhere else (like The Grizzly).
+       Give it a title, a date, the link, and a one-line description:
 
-   Write here. Leave a blank line between paragraphs.
+         {
+           title:   "My article",
+           date:    "2026-02-05",
+           link:    "https://thegrizzlynews.org/.../my-article/",
+           source:  "The Grizzly",
+           excerpt: "One line about it."
+         },
 
-   You can use:  ## a heading   **bold**   *italic*   [a link](https://...)
-                 > a quote      - a bullet point
+   (B) WRITE a post right here on your site. Same, but use "body" instead of
+       "link" (Markdown: ## heading, **bold**, *italic*, > quote, - bullet):
 
-         `
-       },
+         {
+           title: "My post",
+           date:  "2026-06-21",
+           body: `
+   Write here. Blank line between paragraphs.
+           `
+         },
 
-   That's everything. Newest post goes at the top. Keep the quotes, commas
-   and the backticks (`) around the body where they are.
+   Newest at the top. Only change the words inside the "quotes". Keep the
+   commas and brackets.
 
    ===========================================================================*/
 
 const POSTS = [
 
   {
-    title: "The City On My Shoulders",
-    date:  "2026-04-15",
-    body: `
-I have lived in four cities and I am not really *from* any of them.
-
-People ask where I'm from and I watch the question get heavier every year.
-London is on my passport. Tokyo is in my mouth. Singapore was two years of
-heat and homework. New York is where I am now.
-
-> Home stopped being a place and became a kind of weather I carry around.
-
-This is the start of the essay that grew into the one that won a Gold Key.
-More soon.
-    `
+    title:   "The City on My Shoulders",
+    date:    "2026-02-05",
+    link:    "https://thegrizzlynews.org/2699/showcase/the-everlasting-shadow-of-hiroshima-2/",
+    source:  "The Grizzly",
+    excerpt: "Visiting Hiroshima with my grandfather, and what stayed with me. (Scholastic Gold Key, 2026.)"
   },
 
   {
-    title: "Why I built this the boring way",
-    date:  "2026-03-02",
-    body: `
-This site is hand-written. No framework, no build step, nothing that needs
-reinstalling in two years to keep working.
+    title:   "Ven.Space",
+    date:    "2025-11-21",
+    link:    "https://thegrizzlynews.org/2648/showcase/ven-space/",
+    source:  "The Grizzly",
+    excerpt: "A high-end fashion space tucked into Carroll Gardens, Brooklyn."
+  },
 
-I wanted something I could own completely and keep forever. So this is the
-boring, durable version: a page that says who I am, and two doors — one to
-**writing**, one to **photography**. That's the whole site.
-    `
+  {
+    title:   "Bedtime Stories",
+    date:    "2025-10-10",
+    link:    "https://thegrizzlynews.org/2599/literature-and-arts/bedtime-stories/",
+    source:  "The Grizzly",
+    excerpt: "On Stefano Gallici’s Spring 2026 collection for Ann Demeulemeester."
   }
 
 ];
 
 /* ===========================================================================
-   Machinery below. You don't need to touch any of this to write posts.
+   Machinery below. You don't need to touch any of this to add writing.
    ===========================================================================*/
 
-/* turn a title into a url-friendly slug, e.g. "My Post!" -> "my-post" */
 function slugify(s) {
   return String(s).toLowerCase().trim()
     .replace(/[^\w\s-]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-");
 }
 function postSlug(p) { return p.slug ? p.slug : slugify(p.title); }
 
-/* first sentence-ish of the body, used on the index when no excerpt is set */
 function postExcerpt(p) {
   if (p.excerpt) return p.excerpt;
   var line = String(p.body || "").replace(/\r\n/g, "\n").split("\n")
@@ -81,7 +81,7 @@ function fmtDate(iso) {
     d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 }
 
-/* ---- tiny markdown -> html ---------------------------------------------- */
+/* ---- tiny markdown -> html (for posts you write here) ------------------- */
 function md(src) {
   var esc = function (s) {
     return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -102,7 +102,6 @@ function md(src) {
 
   var lines = src.replace(/\r\n/g, "\n").split("\n");
   var html = "", para = [], list = null, m;
-
   var flushPara = function () { if (para.length) { html += "<p>" + inline(para.join(" ").trim()) + "</p>"; para = []; } };
   var flushList = function () { if (list) { html += "</" + list + ">"; list = null; } };
 
@@ -129,22 +128,26 @@ function md(src) {
 /* ---- render the index list (blog.html) ---------------------------------- */
 function renderPostList(el) {
   if (!el) return;
-  if (!POSTS.length) { el.innerHTML = '<li class="empty">No posts yet.</li>'; return; }
+  if (!POSTS.length) { el.innerHTML = '<li class="empty">No writing yet.</li>'; return; }
   el.innerHTML = POSTS.map(function (p) {
     var ex = postExcerpt(p);
-    return '<li><a href="post.html?p=' + encodeURIComponent(postSlug(p)) + '">' +
-      '<span class="date">' + fmtDate(p.date) + '</span>' +
-      '<span><h2>' + p.title + '</h2>' +
-      (ex ? '<p class="excerpt">' + ex + '</p>' : '') +
-      '</span></a></li>';
+    var external = !!p.link;
+    var href = external ? p.link : ("post.html?p=" + encodeURIComponent(postSlug(p)));
+    var attrs = external ? ' target="_blank" rel="noopener"' : "";
+    var tag = external ? ' <span class="ext">&#8599; ' + (p.source || "link") + "</span>" : "";
+    return '<li><a href="' + href + '"' + attrs + ">" +
+      '<span class="date">' + fmtDate(p.date) + "</span>" +
+      "<span><h2>" + p.title + tag + "</h2>" +
+      (ex ? '<p class="excerpt">' + ex + "</p>" : "") +
+      "</span></a></li>";
   }).join("");
 }
 
-/* ---- render a single post (post.html) ----------------------------------- */
+/* ---- render a single post (post.html) — for posts you write here -------- */
 function renderPost(el) {
   if (!el) return;
   var slug = new URLSearchParams(location.search).get("p");
-  var post = POSTS.find(function (p) { return postSlug(p) === slug; });
+  var post = POSTS.find(function (p) { return !p.link && postSlug(p) === slug; });
 
   if (!post) {
     document.title = "Not found — Yohtaro Shimozawa";
