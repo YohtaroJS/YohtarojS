@@ -11,7 +11,7 @@
 <link rel="canonical" href="https://yohtarojs.com/photography.html">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
-<link rel="preload" href="fonts/DepartureMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/RobotoMono-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,6 +22,7 @@
     <nav>
       <a href="blog.html">writing</a>
       <a href="photography.html" aria-current="page">photography</a>
+      <span class="social" id="social"></span>
     </nav>
   </header>
 
@@ -38,8 +39,6 @@
   <footer class="foot">
     <div class="links">
       <a href="index.html">home</a>
-      <a href="https://instagram.com/yohtarojs" target="_blank" rel="me noopener">instagram</a>
-      <a href="mailto:yohtaroshimozawa@gmail.com">email</a>
     </div>
     <span class="copy">© <span data-year>2026</span> Yohtaro Shimozawa</span>
   </footer>
@@ -48,6 +47,7 @@
 
 <script src="photos.js"></script>
 <script>renderGallery(document.getElementById("gallery"));</script>
+<script src="content.js"></script>
 <script src="site.js"></script>
 </body>
 </html>
