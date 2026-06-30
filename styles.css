@@ -199,7 +199,7 @@ strong,b{ font-weight:700; }
 .gallery{ display:grid; grid-template-columns:repeat(2,1fr); gap:2.6rem 1.8rem; padding-top:.5rem; }
 .gallery figure{ margin:0; }
 .gallery .shot{ display:block; }
-.gallery img{ width:100%; height:auto; display:block; border:1px solid var(--line); transition:opacity .2s; }
+.gallery img{ width:100%; height:auto; display:block; border:1px solid var(--line); transition:opacity .2s; image-orientation:from-image; }
 .gallery .shot:hover img{ opacity:.92; }
 .gallery figcaption{ margin-top:.75rem; display:flex; justify-content:space-between; gap:1.2rem; align-items:baseline; font-size:.84rem; line-height:1.45; }
 .gallery figcaption .cap{ color:var(--ink); }
