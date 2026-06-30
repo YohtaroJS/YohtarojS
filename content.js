@@ -45,7 +45,7 @@ const PROFILE = {
       label: "work",
       rows: [
         { yr: "2025 — now",   tx: "Intern — Nepenthes New York" },
-        { yr: "Jan–May 2026", tx: "Social Media Intern — The Metroplitan Museum of Art, @MetTeens" },
+        { yr: "Jan–May 2026", tx: "Social Media Intern — The Metropolitan Museum of Art, @MetTeens" },
         { yr: "2024 — now",   tx: "Assistant Karate Instructor — Japanese American Budokan" },
         { yr: "summers",      tx: "Camp Volunteer — NYS Dept. of Environmental Conservation" },
       ]
