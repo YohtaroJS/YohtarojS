@@ -63,6 +63,39 @@ const PROFILE = {
   ],
 
 
+  /* ---- Skills ------------------------------------------------------------
+     Each skill has a "name" and one or more "lines".
+     A skill can also embed an Instagram post — paste an instagram.com/p/...
+     or /reel/... link as "embed" (delete the embed line if you don't want one).
+  ------------------------------------------------------------------------- */
+  skills: [
+
+    {
+      name:  "Videography and Editing",
+      lines: ["Filmed a montage for @MetTeens with a MiniDV Camcorder and edited with Davinci Resolve."],
+      embed: "https://www.instagram.com/p/DZqKD7QgzCV/"
+    },
+
+    {
+      name:  "Journalism",
+      lines: ["Member of Quill and Scroll International Honorary Society",
+              "Work recognized by National Scholastic Art & Writing Awards"]
+    },
+
+    {
+      name:  "Japanese",
+      lines: ["Native Speaker",
+              "AP Japanese"]
+    },
+
+    {
+      name:  "Retail",
+      lines: ["Experience as an intern for high-end clothing brands, including inventory management, sales and supporting a fast-paced Bilingual retail environment."]
+    },
+
+  ],
+
+
   /* ---- Footer links ----------------------------------------------------- */
   email:     "yohtaroshimozawa@gmail.com",
   instagram: "yohtarojs",                  // just the handle, no @

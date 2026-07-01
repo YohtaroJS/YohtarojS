@@ -139,6 +139,20 @@ strong,b{ font-weight:700; }
   .rows .yr{ padding-top:0; }
 }
 
+/* skills — same ruled list, wider left column + a bold skill name */
+.rows.skillrows li{ grid-template-columns:13rem 1fr; align-items:start; padding:1.2rem 0; border-top:1px solid var(--line); }
+.rows.skillrows li:first-child{ border-top:none; padding-top:.2rem; }
+.rows.skillrows .sk{ font-weight:700; color:var(--ink); font-size:.95rem; padding-top:.1rem; }
+.rows.skillrows .desc{ color:var(--muted); font-size:1rem; line-height:1.6; }
+.rows.skillrows .desc .ln{ display:block; }
+.rows.skillrows .desc .ln + .ln{ margin-top:.15rem; }
+.embed{ margin-top:1rem; }
+.embed iframe{ width:100%; max-width:400px; height:720px; border:1px solid var(--line); background:#fff; display:block; }
+@media (max-width:600px){
+  .rows.skillrows li{ grid-template-columns:1fr; gap:.4rem; padding:1.1rem 0; }
+  .rows.skillrows .sk{ padding-top:0; }
+}
+
 /* ---- colophon (footer) -------------------------------------------------- */
 .foot{ display:flex; flex-wrap:wrap; gap:.8rem 1.6rem; align-items:baseline; padding:1.6rem 0 2.4rem; }
 .foot a, .foot span{ font-size:.78rem; color:var(--muted); }

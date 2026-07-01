@@ -44,6 +44,26 @@
              '</section>';
     }).join("");
 
+    var skills = (p.skills && p.skills.length) ?
+      '<section class="block">' +
+        '<p class="label">skills</p>' +
+        '<ul class="rows skillrows">' +
+          p.skills.map(function (s) {
+            var lines = (s.lines || []).map(function (l) {
+              return '<span class="ln">' + esc(l) + '</span>';
+            }).join("");
+            var embed = "";
+            if (s.embed) {
+              var src = String(s.embed).replace(/\/?$/, "/") + "embed";
+              embed = '<div class="embed"><iframe src="' + esc(src) +
+                      '" loading="lazy" scrolling="no" allowtransparency="true" frameborder="0"></iframe></div>';
+            }
+            return '<li><span class="sk">' + esc(s.name) + '</span>' +
+                   '<span class="desc">' + lines + embed + '</span></li>';
+          }).join("") +
+        '</ul>' +
+      '</section>' : "";
+
     el.innerHTML =
       '<header class="masthead rule' + (ascii ? ' has-ascii' : '') + '">' +
         '<div class="mh-text">' +
@@ -55,6 +75,7 @@
         (ascii ? '<pre class="ascii" aria-hidden="true">' + esc(ascii) + '</pre>' : '') +
       '</header>' +
       sections +
+      skills +
       '<footer class="foot">' +
         '<span class="copy">&copy; <span data-year></span> ' + esc(p.name) + '</span>' +
       '</footer>';
