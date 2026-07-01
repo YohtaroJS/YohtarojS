@@ -6,6 +6,18 @@
 (function () {
   "use strict";
 
+  /* ---- visitor analytics: GoatCounter (privacy-friendly, no cookies) ------
+     See your stats at:  https://yohtarojs.goatcounter.com
+     Counts a pageview on every page (loads on all pages via this file). */
+  window.goatcounter = { endpoint: "https://yohtarojs.goatcounter.com/count" };
+  (function () {
+    var gc = document.createElement("script");
+    gc.async = true;
+    gc.src = "https://gc.zgo.at/count.js";
+    gc.setAttribute("data-goatcounter", "https://yohtarojs.goatcounter.com/count");
+    (document.head || document.documentElement).appendChild(gc);
+  })();
+
   function esc(s) {
     return String(s == null ? "" : s)
       .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
