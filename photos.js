@@ -23,7 +23,7 @@
 
 const PHOTOS = [
 
-  { src: "images/P1020941.JPG",    caption: "11:46",            date: "June 13, 2026" },
+  { src: "images/P1020941.JPG",    caption: "Knicks Win the City Back", date: "June 13, 2026" },
   { src: "images/middlefinger.JPG", caption: "",                date: "June 2026" },
   { src: "images/P1020965.JPG",    caption: "Brooklyn",         date: "2026" },
   { src: "images/DSC05039.JPG",    caption: "",                 date: "" },  /* ← bonus street shot: add a caption/date or delete this line */

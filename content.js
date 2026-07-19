@@ -60,6 +60,17 @@ const PROFILE = {
       ]
     },
 
+    {
+      label: "test scores",
+      rows: [
+        { yr: "5",       tx: "AP Japanese Language and Culture" },
+        { yr: "4",       tx: "AP English Language and Composition" },
+        { yr: "4",       tx: "AP US History" },
+        { yr: "4",       tx: "AP Biology" },
+        { yr: "Grade 1", tx: "STEP Eiken" },
+      ]
+    },
+
   ],
 
 
@@ -90,7 +101,7 @@ const PROFILE = {
 
     {
       name:  "Retail",
-      lines: ["Experience as an intern for high-end clothing brands, including inventory management, sales and supporting a fast-paced Bilingual retail environment."]
+      lines: ["Experience as an intern for Nepenthes NY, work including inventory management, sales and supporting a fast-paced Bilingual retail environment."]
     },
 
   ],
