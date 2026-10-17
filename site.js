@@ -44,6 +44,8 @@
   function renderProfile(el, p) {
     if (!el || !p) return;
     var ascii = getAscii();
+    var portrait = p.portrait ? String(p.portrait) : "";
+    var sideArt = portrait || ascii;
 
     var sections = (p.sections || []).map(function (s) {
       var rows = (s.rows || []).map(function (r) {
@@ -77,14 +79,16 @@
       '</section>' : "";
 
     el.innerHTML =
-      '<header class="masthead rule' + (ascii ? ' has-ascii' : '') + '">' +
+      '<header class="masthead rule' + (sideArt ? ' has-ascii' : '') + '">' +
         '<div class="mh-text">' +
           '<h1>' + esc(p.name) + '</h1>' +
           (p.kanji ? '<div class="kanji">' + esc(p.kanji) + '</div>' : '') +
           (p.intro ? '<p class="intro">' + esc(p.intro) + '</p>' : '') +
           (p.place ? '<div class="place">' + esc(p.place) + '<span class="caret"></span></div>' : '') +
         '</div>' +
-        (ascii ? '<pre class="ascii" aria-hidden="true">' + esc(ascii) + '</pre>' : '') +
+        (portrait
+          ? '<img class="portrait" src="' + esc(portrait) + '" alt="' + esc(p.name) + '" loading="lazy" decoding="async">'
+          : (ascii ? '<pre class="ascii" aria-hidden="true">' + esc(ascii) + '</pre>' : '')) +
       '</header>' +
       sections +
       skills +

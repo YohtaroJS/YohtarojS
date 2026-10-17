@@ -20,6 +20,10 @@ const PROFILE = {
   kanji: "下澤陽太朗",              // shown small under your name (delete the text to hide)
   place: "Brooklyn, New York",    // where you are now
 
+  // The photo shown to the RIGHT of your name. Put the file in images/ and
+  // write its name here. Delete the text (leave "") to hide the photo.
+  portrait: "images/portrait.jpg",
+
   // The short paragraph under your name. Write whatever you want here.
   intro: "Student, writer, and photographer. Born in London; raised across Tokyo, Singapore, and New York.",
 
@@ -58,50 +62,6 @@ const PROFILE = {
         { yr: "2020 — 2022", tx: "Nexus International School Singapore" },
         { yr: "2015 — 2020", tx: "Nishimachi International School" },
       ]
-    },
-
-    {
-      label: "test scores",
-      rows: [
-        { yr: "5",       tx: "AP Japanese Language and Culture" },
-        { yr: "4",       tx: "AP English Language and Composition" },
-        { yr: "4",       tx: "AP US History" },
-        { yr: "4",       tx: "AP Biology" },
-        { yr: "Grade 1", tx: "STEP Eiken" },
-      ]
-    },
-
-  ],
-
-
-  /* ---- Skills ------------------------------------------------------------
-     Each skill has a "name" and one or more "lines".
-     A skill can also embed an Instagram post — paste an instagram.com/p/...
-     or /reel/... link as "embed" (delete the embed line if you don't want one).
-  ------------------------------------------------------------------------- */
-  skills: [
-
-    {
-      name:  "Videography and Editing",
-      lines: ["Filmed a montage for @MetTeens with a MiniDV Camcorder and edited with Davinci Resolve."],
-      embed: "https://www.instagram.com/p/DZqKD7QgzCV/"
-    },
-
-    {
-      name:  "Journalism",
-      lines: ["Member of Quill and Scroll International Honorary Society",
-              "Work recognized by National Scholastic Art & Writing Awards"]
-    },
-
-    {
-      name:  "Japanese",
-      lines: ["Native Speaker",
-              "AP Japanese"]
-    },
-
-    {
-      name:  "Retail",
-      lines: ["Experience as an intern for Nepenthes NY, work including inventory management, sales and supporting a fast-paced Bilingual retail environment."]
     },
 
   ],
