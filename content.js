@@ -18,14 +18,14 @@ const PROFILE = {
   /* ---- The big stuff at the top ----------------------------------------- */
   name:  "Yohtaro Shimozawa",     // your name, big at the top
   kanji: "下澤陽太朗",              // shown small under your name (delete the text to hide)
-  place: "Brooklyn, New York",    // where you are now
+  place: "",    // where you are now (leave "" to hide)
 
   // The photo shown to the RIGHT of your name. Put the file in images/ and
   // write its name here. Delete the text (leave "") to hide the photo.
   portrait: "images/portrait.jpg",
 
   // The short paragraph under your name. Write whatever you want here.
-  intro: "Student, writer, and photographer. Born in London; raised across Tokyo, Singapore, and New York.",
+  intro: "Student of the world. Born in London, raised by Tokyo, Singapore, and New York.",
 
 
   /* ---- The lists ---------------------------------------------------------
