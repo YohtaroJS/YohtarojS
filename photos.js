@@ -23,14 +23,14 @@
 
 const PHOTOS = [
 
-  { src: "images/night-flowers.jpg", caption: "", date: "" },
-  { src: "images/ferry-window.jpg",  caption: "", date: "" },
   { src: "images/street-couple.jpg", caption: "", date: "" },
+  { src: "images/ferry-window.jpg",  caption: "", date: "" },
   { src: "images/green-coat.jpg",    caption: "", date: "" },
-  { src: "images/P1020941.JPG",      caption: "", date: "June 13, 2026" },
-  { src: "images/middlefinger.JPG",  caption: "", date: "June 2026" },
+  { src: "images/DSCN1083.JPG",      caption: "", date: "" },
+  { src: "images/middlefinger.JPG",  caption: "", date: "" },
+  { src: "images/P1020941.JPG",      caption: "", date: "" },
+  { src: "images/night-flowers.jpg", caption: "", date: "" },
   { src: "images/DSC05039.JPG",      caption: "", date: "" },
-  { src: "images/DSCN1083.JPG",      caption: "", date: "August 2023" },
 
 ];
 
