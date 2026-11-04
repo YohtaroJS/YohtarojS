@@ -23,12 +23,14 @@
 
 const PHOTOS = [
 
-  { src: "images/P1020941.JPG",    caption: "Knicks Win the City Back", date: "June 13, 2026" },
-  { src: "images/middlefinger.JPG", caption: "",                date: "June 2026" },
-  { src: "images/P1020965.JPG",    caption: "Brooklyn",         date: "2026" },
-  { src: "images/DSC05039.JPG",    caption: "",                 date: "" },  /* ← bonus street shot: add a caption/date or delete this line */
-  { src: "images/DSCN1083.JPG",    caption: "The American Man", date: "August 2023" },
-  { src: "images/orange-buses.JPG", caption: "",                date: "June 2023" },
+  { src: "images/night-flowers.jpg", caption: "", date: "" },
+  { src: "images/ferry-window.jpg",  caption: "", date: "" },
+  { src: "images/street-couple.jpg", caption: "", date: "" },
+  { src: "images/green-coat.jpg",    caption: "", date: "" },
+  { src: "images/P1020941.JPG",      caption: "", date: "June 13, 2026" },
+  { src: "images/middlefinger.JPG",  caption: "", date: "June 2026" },
+  { src: "images/DSC05039.JPG",      caption: "", date: "" },
+  { src: "images/DSCN1083.JPG",      caption: "", date: "August 2023" },
 
 ];
 
